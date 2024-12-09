@@ -18,7 +18,9 @@ def sort_by_date(dictionary: list[dict], ascending=True) -> list[dict]:
         if ascending is False:
             return sorted(dictionary, key=lambda ascending: ascending["date"])
         else:
-            return sorted(dictionary, key=lambda ascending: ascending["date"], reverse=True)
+            return sorted(
+                dictionary, key=lambda ascending: ascending["date"], reverse=True
+            )
     except Exception:
         print("Ошибка в дате")
         raise Exception
