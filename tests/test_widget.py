@@ -1,22 +1,23 @@
 import pytest
 from src.widget import mask_account_card, get_date
 
+
 @pytest.mark.parametrize("input_user, separated",
                          [("Maestro 1596837868705199", "Maestro 1596 83** **** 5199"),
                           ("Счет 64686473678894779589", "Счет **9589"),
                           ("MasterCard 7158300734726758", "MasterCard 7158 30** **** 6758"),
                           ("Счет 35383033474447895560", "Счет **5560"),
-                          ("Visa Classic 6831982476737658", "Visa Classic 6831 98** **** 7658"),
-                                                   ])
-def test_mask_account_card(input_user,separated):
+                          ("Visa Classic 6831982476737658", "Visa Classic 6831 98** **** 7658")
+                          ])
+def test_mask_account_card(input_user, separated):
     """Тест на проверку разделения входных данных: карта/счет"""
     assert mask_account_card(input_user) == separated
 
 
 @pytest.mark.parametrize("input_user_vrong",
                          [("1"),
-                         ("Счкеит 56461315 kjb"),
-                         ("Visa 451315 fd56b")],
+                          ("Счкеит 56461315 kjb"),
+                          ("Visa 451315 fd56b")],
                          )
 def test_mask_account_card_invalid(input_user_vrong):
     """Тест на правильность ввода данных карты"""
