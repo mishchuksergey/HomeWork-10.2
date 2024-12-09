@@ -1,4 +1,4 @@
-def filter_by_state(dictionary: list[dict], state: str) -> list[dict]:
+def filter_by_state(dictionary: list[dict], state: str) -> list[dict] | None:
     """Функция,которая возвращает новый список словарей, содержащий только те словари,
     у которых ключ state соответствует указанному значению"""
     new_dictionary: list[dict] = [{}]
@@ -9,7 +9,7 @@ def filter_by_state(dictionary: list[dict], state: str) -> list[dict]:
     if new_dictionary != [{}]:
         return new_dictionary[1:]
     else:
-        print("Не верно введен state")
+        return print("Не верно введен state")
 
 
 def sort_by_date(dictionary: list[dict], ascending=True) -> list[dict]:
